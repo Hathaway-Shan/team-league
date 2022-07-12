@@ -5,8 +5,8 @@ import { protectPage } from '../utils.js';
 import createUser from '../components/User.js';
 
 //imports
-import { getTeamsAndPlayers } from '../client-services/team-services.js';
-import createTeams from '../components/Teams.js';
+import { getPlayers } from '../client-services/team-services.js';
+import createPlayers from '../components/Players.js';
 
 
 
@@ -14,7 +14,7 @@ import createTeams from '../components/Teams.js';
 let user = null;
 
 //State 
-let teams = [];
+let players = [];
 
 
 
@@ -23,8 +23,8 @@ async function handlePageLoad() {
     user = getUser();
     protectPage(user);
 
-    teams = await getTeamsAndPlayers();
-
+    players = await getPlayers();
+    console.log(players);
     display();
 }
 
@@ -41,11 +41,11 @@ const User = createUser(
 );
 
 // Components
-const Teams = createTeams(document.querySelector('#player-list'));
+const Teams = createPlayers(document.querySelector('#player-list'));
 
 function display() {
     User({ user });
-    Teams({ teams });
+    Teams({ players });
 }
 
 handlePageLoad();
