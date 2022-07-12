@@ -1,24 +1,51 @@
-import { getPlayers } from '../client-services.js/team-services';
-
-
-import { getUser } from '../services/auth-service.js';
+// imports Marty
+import { getUser, signOut } from '../services/auth-service.js';
 import { protectPage } from '../utils.js';
 
-let user = null;
-let players = [];
+import createUser from '../components/User.js';
 
+//imports
+import { getTeamsAndPlayers } from '../client-services/team-services.js';
+import createTeams from '../components/Teams.js';
+
+
+
+// State Marty
+let user = null;
+
+//State 
+let teams = [];
+
+
+
+// Action Handlers Marty
 async function handlePageLoad() {
     user = getUser();
     protectPage(user);
-    players = await getPlayers();
-    console.log(players);
+
+    teams = await getTeamsAndPlayers();
+
     display();
 }
 
+async function handleSignOut() {
+    signOut();
+}
 
+// Action Handlers 
+
+// Components Marty
+const User = createUser(
+    document.querySelector('#user'),
+    { handleSignOut }
+);
+
+// Components
+const Teams = createTeams(document.querySelector('#player-list'));
 
 function display() {
-
+    User({ user });
+    Teams({ teams });
 }
 
 handlePageLoad();

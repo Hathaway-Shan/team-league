@@ -5,36 +5,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" type="image/x-icon" href="/assets/alchemy-favicon.png" />
     <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
-    <link rel="stylesheet" href="/styles/reset.css" />
-    <link rel="stylesheet" href="/styles/main.css" />
-    <link rel="stylesheet" href="/styles/home.css" />
-    <title>Web MVC UI</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/home.css" />
+    <title>Cool Web App</title>
 </head>
 
 <body>
     <header>
-        <img src="/assets/html_css_js.png">
-        <h1>Players!</h1>
-        <!-- href "../" targets the root which here is the app.js HTML  -->
-        <a href="../"><button id="home">Home</button></a>
-        </div>
+        <img src="../assets/html_css_js.png">
+        <h1>Player Display Page</h1>
+        <div id="user"></div>
     </header>
 
     <main>
-        <h2>Player List</h2>
-        <ul id="player-list">
-            <li class="player">Player 1</li>
-        </ul>
+        <div class="row">
+            <div class="column">
+                <section id="player-display">
 
+                    <ul id="player-list">
+
+                    </ul>
+
+                </section>
+            </div>
+        </div>
+        <a href="../"><button id="home">Home</button></a>
     </main>
-
-
 
     <script type="module" src="player-list.js"></script>
 </body>
