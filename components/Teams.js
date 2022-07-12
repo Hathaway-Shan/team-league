@@ -13,6 +13,7 @@ export default function createTeams(list) {
 
 //What makes up the object team?
 function Team({ team }) {
+
     const li = document.createElement('li');
     li.classList.add('team');
 
@@ -23,25 +24,26 @@ function Team({ team }) {
     ul.classList.add('players');
 
     //Create Player Object within team object
-    for (const player of team.player) {
-        const item = Player({ player });
+    for (const player of team.players) {
+
+        const item = Player(player);
         ul.append(item);
     }
+
+    //append and return the li that makes up the object team
     li.append(h2, ul);
+    return li;
 }
 
 //what makes up the object player?
-function Player({ player }) {
+function Player(player) {
     const li = document.createElement('li');
     li.classList.add('player');
 
     const h3 = document.createElement('h3');
     h3.textContent = player.name;
+
+    li.append(h3);
+    return li;
 }
 
-// function addForm({ team, handleAddPlayer, handleRemovePlayer }) {
-//     const form = document.createElement('form');
-
-//     const input = document.createElement('input');
-//     input.required = true;
-// }
