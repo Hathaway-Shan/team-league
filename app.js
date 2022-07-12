@@ -24,8 +24,7 @@ async function handlePageLoad() {
     protectPage(user);
 
     teams = await getTeamsAndPlayers();
-    // players = await getPlayers();
-    // console.log(players, teams);
+
     display();
 }
 

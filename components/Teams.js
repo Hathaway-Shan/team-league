@@ -43,6 +43,8 @@ function Player(player) {
     const h3 = document.createElement('h3');
     h3.textContent = player.name;
 
+
+    //append and return the li that makes up the object player
     li.append(h3);
     return li;
 }
