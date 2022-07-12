@@ -38,10 +38,21 @@
             <div class="column">
                 <p>add or remove players by entering a name and team</p>
                 <section id="edit-player-form">
-                    <input id="name-input">
-                    <input id="team-input">
-                    <button id="add-player">Add Player</button>
-                    <button id="remove-player">Remove Player</button>
+                    <form>
+                        <select>
+                            <option selected>Select team</option>
+                            <option id="The Bears">The Bears</option>
+                            <option id="The Dolphins">The Dolphins</option>
+                            <option id="The Tigers">The Tigers</option>
+                        </select>
+                        <input id="name-input">
+
+                        <button id="add-player">Add player</button>
+                        <button id="remove-player">Remove player</button>
+                    </form>
+
+
+
                 </section>
                 <p>checkout player info to see which team a player is on.</p>
                 <a href="./player-list-display/"><button id="player-info">Player Info</button></a>

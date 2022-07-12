@@ -19,7 +19,7 @@ function Player({ player }) {
     h2.textContent = player.name;
 
     const p = document.createElement('p');
-    p.textContent = player.teams.name;
+    p.textContent = `plays for ${player.teams.name}`;
 
     const ul = document.createElement('ul');
     ul.classList.add('team');
