@@ -5,7 +5,7 @@ import { protectPage } from './utils.js';
 import createUser from './components/User.js';
 
 //imports
-import { getTeamsAndPlayers } from './client-services/team-services.js';
+import { getTeamsAndPlayers, removePlayer } from './client-services/team-services.js';
 import createTeams from './components/Teams.js';
 
 
@@ -31,6 +31,14 @@ async function handlePageLoad() {
 async function handleSignOut() {
     signOut();
 }
+async function handleRemovePlayer(player) {
+    await removePlayer(player.id);
+
+    // const playerIndex = teams.players.indexOf(player);
+    // teams.players.splice(playerIndex, 1);
+    teams = await getTeamsAndPlayers();
+    display();
+}
 
 // Action Handlers 
 
@@ -41,7 +49,29 @@ const User = createUser(
 );
 
 // Components
-const Teams = createTeams(document.querySelector('#team-list'));
+const Teams = createTeams(document.querySelector('#team-list'), { handleRemovePlayer });
+const teamDropdown = document.querySelector('#team-dropdown');
+const removeForm = document.querySelector('#remove-player-form');
+const addForm = document.querySelector('#add-player-form');
+
+//Event listeners
+//use change for dropdown menus
+teamDropdown.addEventListener('change', (e) => {
+    e.preventDefault;
+    console.log(teamDropdown.value);
+});
+
+removeForm.addEventListener('submit', (e) => {
+    e.preventDefault;
+
+
+    console.log('remove player button');
+});
+
+addForm.addEventListener('submit', (e) => {
+    e.preventDefault;
+    console.log('add player button');
+});
 
 function display() {
     User({ user });

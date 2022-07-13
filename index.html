@@ -36,21 +36,30 @@
                 </section>
             </div>
             <div class="column">
-                <p>add or remove players by entering a name and team</p>
-                <section id="edit-player-form">
-                    <form>
-                        <select>
+                <p>add or remove players by entering a name and selecting a team</p>
+                <section>
+                    <form id="add-player-form">
+                        <input id="name-input">
+                        <select id="team-dropdown">
+                            <option selected>Select team</option>
+                            <option value="3">The Bears</option>
+                            <option value="2">The Dolphins</option>
+                            <option value="1">The Tigers</option>
+                        </select>
+
+                        <button id="add-player">Add player</button>
+                    </form>
+                    <form id="remove-player-form">
+                        <input id="name-input">
+                        <select id="team-dropdown">
                             <option selected>Select team</option>
                             <option id="The Bears">The Bears</option>
                             <option id="The Dolphins">The Dolphins</option>
                             <option id="The Tigers">The Tigers</option>
                         </select>
-                        <input id="name-input">
 
-                        <button id="add-player">Add player</button>
                         <button id="remove-player">Remove player</button>
                     </form>
-
 
 
                 </section>

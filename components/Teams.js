@@ -1,18 +1,18 @@
 
 //create Team Object 
-export default function createTeams(list) {
+export default function createTeams(list, { handleRemovePlayer }) {
     return ({ teams }) => {
         list.innerHTML = '';
 
         for (const team of teams) {
-            const item = Team({ team });
+            const item = Team({ team, handleRemovePlayer });
             list.append(item);
         }
     };
 }
 
 //What makes up the object team?
-function Team({ team }) {
+function Team({ team, handleRemovePlayer }) {
 
     const li = document.createElement('li');
     li.classList.add('team');
@@ -26,7 +26,7 @@ function Team({ team }) {
     //Create Player Object within team object
     for (const player of team.players) {
 
-        const item = Player(player);
+        const item = Player(player, { handleRemovePlayer });
         ul.append(item);
     }
 
@@ -36,16 +36,22 @@ function Team({ team }) {
 }
 
 //what makes up the object player?
-function Player(player) {
+function Player(player, { handleRemovePlayer }) {
     const li = document.createElement('li');
     li.classList.add('player');
 
     const h3 = document.createElement('h3');
     h3.textContent = player.name;
 
+    const button = document.createElement('button');
+    button.classList.add('delete');
+    button.textContent = 'X';
 
+    button.addEventListener('click', () => {
+        handleRemovePlayer(player);
+    });
     //append and return the li that makes up the object player
-    li.append(h3);
+    li.append(h3, button);
     return li;
 }
 
