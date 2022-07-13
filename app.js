@@ -42,10 +42,8 @@ async function handleRemovePlayer(player) {
 
 // Action Handlers 
 async function handleAddPlayer(name, teamId) {
-    console.log(teamId);
-    await addPlayer(name, Number(teamId));
 
-    // teams = await getTeamsAndPlayers();
+    await addPlayer(name, Number(teamId));
 
     display();
 }
