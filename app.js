@@ -5,7 +5,7 @@ import { protectPage } from './utils.js';
 import createUser from './components/User.js';
 
 //imports
-import { getTeamsAndPlayers, removePlayer } from './client-services/team-services.js';
+import { getTeamsAndPlayers, removePlayer, addPlayer } from './client-services/team-services.js';
 import createTeams from './components/Teams.js';
 
 
@@ -41,7 +41,14 @@ async function handleRemovePlayer(player) {
 }
 
 // Action Handlers 
+async function handleAddPlayer(name, teamId) {
+    console.log(teamId);
+    await addPlayer(name, Number(teamId));
 
+    // teams = await getTeamsAndPlayers();
+
+    display();
+}
 // Components Marty
 const User = createUser(
     document.querySelector('#user'),
@@ -50,27 +57,20 @@ const User = createUser(
 
 // Components
 const Teams = createTeams(document.querySelector('#team-list'), { handleRemovePlayer });
-const teamDropdown = document.querySelector('#team-dropdown');
-const removeForm = document.querySelector('#remove-player-form');
-const addForm = document.querySelector('#add-player-form');
 
+
+const addForm = document.querySelector('#add-player-form');
 //Event listeners
 //use change for dropdown menus
-teamDropdown.addEventListener('change', (e) => {
-    e.preventDefault;
-    console.log(teamDropdown.value);
-});
 
-removeForm.addEventListener('submit', (e) => {
+
+addForm.addEventListener('submit', async (e) => {
     e.preventDefault;
 
+    const formData = new FormData(addForm);
 
-    console.log('remove player button');
-});
-
-addForm.addEventListener('submit', (e) => {
-    e.preventDefault;
-    console.log('add player button');
+    await handleAddPlayer(formData.get('name-input'), formData.get('team-dropdown'));
+    addForm.reset();
 });
 
 function display() {

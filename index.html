@@ -39,9 +39,9 @@
                 <p>add or remove players by entering a name and selecting a team</p>
                 <section>
                     <form id="add-player-form">
-                        <input id="name-input">
-                        <select id="team-dropdown">
-                            <option selected>Select team</option>
+                        <input name="name-input" required>
+                        <select name="team-dropdown" required>
+                            <option value="" selected disabled>Select team</option>
                             <option value="3">The Bears</option>
                             <option value="2">The Dolphins</option>
                             <option value="1">The Tigers</option>
@@ -49,18 +49,6 @@
 
                         <button id="add-player">Add player</button>
                     </form>
-                    <form id="remove-player-form">
-                        <input id="name-input">
-                        <select id="team-dropdown">
-                            <option selected>Select team</option>
-                            <option id="The Bears">The Bears</option>
-                            <option id="The Dolphins">The Dolphins</option>
-                            <option id="The Tigers">The Tigers</option>
-                        </select>
-
-                        <button id="remove-player">Remove player</button>
-                    </form>
-
 
                 </section>
                 <p>checkout player info to see which team a player is on.</p>
