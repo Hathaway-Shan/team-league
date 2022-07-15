@@ -56,11 +56,8 @@ const User = createUser(
 // Components
 const Teams = createTeams(document.querySelector('#team-list'), { handleRemovePlayer });
 
-
+//event listener and relevant component with scope
 const addForm = document.querySelector('#add-player-form');
-//Event listeners
-//use change for dropdown menus
-
 
 addForm.addEventListener('submit', async (e) => {
     e.preventDefault();
