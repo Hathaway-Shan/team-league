@@ -34,8 +34,6 @@ async function handleSignOut() {
 async function handleRemovePlayer(player) {
     await removePlayer(player.id);
 
-    // const playerIndex = teams.players.indexOf(player);
-    // teams.players.splice(playerIndex, 1);
     teams = await getTeamsAndPlayers();
     display();
 }
@@ -45,6 +43,8 @@ async function handleAddPlayer(name, teamId) {
 
     await addPlayer(name, Number(teamId));
 
+    //this is the line that fixes stuff we were sending up the player but not grabbing the updated data
+    teams = await getTeamsAndPlayers();
     display();
 }
 // Components Marty
@@ -63,7 +63,7 @@ const addForm = document.querySelector('#add-player-form');
 
 
 addForm.addEventListener('submit', async (e) => {
-    e.preventDefault;
+    e.preventDefault();
 
     const formData = new FormData(addForm);
 

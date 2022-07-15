@@ -14,7 +14,6 @@ export async function getPlayers() {
 
 export async function addPlayer(playerName, teamId) {
     const response = await client.from('players').insert({ name: playerName, team_id: teamId }).single();
-
     return response.data;
 }
 
