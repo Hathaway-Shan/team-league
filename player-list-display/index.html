@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/home.css" />
+    <title>Cool Web App</title>
+</head>
+
+<body>
+    <header>
+        <img src="../assets/html_css_js.png">
+        <h1>Player Display Page</h1>
+        <a href="../"><button id="home">Home</button></a>
+        <div id="user"></div>
+    </header>
+
+    <main>
+        <div class="row">
+            <div class="column">
+                <section id="player-display">
+
+                    <ul id="player-list">
+
+                    </ul>
+
+                </section>
+            </div>
+        </div>
+
+    </main>
+
+    <script type="module" src="player-list.js"></script>
+</body>
+
+</html>

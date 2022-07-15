@@ -25,10 +25,37 @@
     </header>
 
     <main>
+        <div class="row">
+            <div class="column">
+                <section id="teams-display">
 
+                    <ul id="team-list">
+
+                    </ul>
+
+                </section>
+            </div>
+            <div class="column">
+                <p>add or remove players by entering a name and selecting a team</p>
+                <section>
+                    <form id="add-player-form">
+                        <input name="name-input" required>
+                        <select name="team-dropdown" required>
+                            <option value="" selected disabled>Select team</option>
+                            <option value="3">The Bears</option>
+                            <option value="2">The Dolphins</option>
+                            <option value="1">The Tigers</option>
+                        </select>
+
+                        <button id="add-player">Add player</button>
+                    </form>
+
+                </section>
+                <p>checkout player info to see which team a player is on.</p>
+                <a href="./player-list-display/"><button id="player-info">Player Info</button></a>
+            </div>
+        </div>
     </main>
-
-    <footer>&copy;2022 Aspiring Software Developer</footer>
 
     <script type="module" src="app.js"></script>
 </body>
